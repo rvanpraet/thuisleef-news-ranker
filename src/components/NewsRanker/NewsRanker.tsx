@@ -34,7 +34,7 @@ export const NewsRanker: FunctionComponent = () => {
 
     const renderPosts = () => {
         let res;
-        titleFilter.length > 0 ? res = items.filter(item => item.title.toLowerCase().includes(titleFilter.toLowerCase())) : res = items;
+        titleFilter.length > 0 ? res = items.filter(item => item.title.replace(/[^a-zA-Z ]/g, '').toLowerCase().includes(titleFilter.toLowerCase())) : res = items;
         res = res
             .sort((a, b) => b.likes - a.likes)
             .filter((item, index) => index >= itemsPerPage * page && index < itemsPerPage * page + itemsPerPage)
