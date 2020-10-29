@@ -1,0 +1,64 @@
+{
+    "newsposts": [
+        {
+            "id": 1,
+            "title": "Lorem Ipsum",
+            "content": "Lorem Ipsum Content It",
+            "mediaUrl": "https://picsum.photos/200"
+        },
+        {
+            "id": 2,
+            "title": "Lorem Ipsum",
+            "content": "Lorem Ipsum Content It",
+            "mediaUrl": "https://picsum.photos/200"
+        },
+        {
+            "id": 3,
+            "title": "Lorem Ipsum",
+            "content": "Lorem Ipsum Content It",
+            "mediaUrl": "https://picsum.photos/200"
+        },
+        {
+            "id": 4,
+            "title": "Lorem Ipsum",
+            "content": "Lorem Ipsum Content It",
+            "mediaUrl": "https://picsum.photos/200"
+        },
+        {
+            "id": 5,
+            "title": "Lorem Ipsum",
+            "content": "Lorem Ipsum Content It",
+            "mediaUrl": "https://picsum.photos/200"
+        },
+        {
+            "id": 6,
+            "title": "Lorem Ipsum",
+            "content": "Lorem Ipsum Content It",
+            "mediaUrl": "https://picsum.photos/200"
+        },
+        {
+            "id": 7,
+            "title": "Lorem Ipsum",
+            "content": "Lorem Ipsum Content It",
+            "mediaUrl": "https://picsum.photos/200"
+        },
+        {
+            "id": 8,
+            "title": "Lorem Ipsum",
+            "content": "Lorem Ipsum Content It",
+            "mediaUrl": "https://picsum.photos/200"
+        },
+        {
+            "id": 9,
+            "title": "Lorem Ipsum",
+            "content": "Lorem Ipsum Content It",
+            "mediaUrl": "https://picsum.photos/200"
+        },
+        {
+            "id": 10,
+            "title": "Lorem Ipsum",
+            "content": "Lorem Ipsum Content It",
+            "mediaUrl": "https://picsum.photos/200"
+        }
+    ]
+}
