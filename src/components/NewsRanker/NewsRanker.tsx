@@ -1,10 +1,12 @@
-import { Container } from '@material-ui/core';
+import { Container, makeStyles } from '@material-ui/core';
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import Pagination from '@material-ui/lab/Pagination';
 import { INewsPost } from '../../models/NewsPost';
 import { NewsPost } from '../NewsPost/NewsPost';
 
 export const NewsRanker: FunctionComponent = () => {
+
+    const classes = useStyles();
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -29,12 +31,24 @@ export const NewsRanker: FunctionComponent = () => {
             )
     }, []);
 
-    const sortPosts = (postA: INewsPost, postB: INewsPost) => {
+    const sortPosts = (postA: INewsPost, postB: INewsPost): number => {
         return postB.likes - postA.likes;
     }
+    
 
-    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPage(value - 1);
+    };
+
+    const handleDelete = (id: number): void => {
+        const newArr = items.filter(item => item.id !== id);
+        setItems(newArr);
+    };
+
+    const handleLike = (e: INewsPost): void => {
+        e.likes++;
+        const newArr = [...items];
+        setItems(newArr);
     };
 
     return (
@@ -44,16 +58,36 @@ export const NewsRanker: FunctionComponent = () => {
                 .map(item =>
                     <NewsPost
                         key={item.id}
-                        mediaUrl={item.mediaUrl}
-                        title={item.title}
-                        content={item.content}>
+                        data={item}
+                        onLike={handleLike}
+                        onDelete={handleDelete}>
                     </NewsPost>
             )}
             <Pagination
+                color="secondary"
                 count={Math.floor(items.length / itemsPerPage) + (items.length % itemsPerPage === 0 ? 0 : 1)}
                 page={page + 1}
-                onChange={handleChange} />
+                onChange={handlePageChange} />
         </Container>
     );
 }
+
+const useStyles = makeStyles({
+    root: {
+        display: 'flex',
+        alignItems: 'center'
+    },
+    media: {
+        height: 80,
+        width: 80,
+        margin: '1rem'
+    },
+    content: {
+        width: '80%'
+    },
+    actions: {
+        display: 'flex',
+        width: 'auto'
+    },
+});
 

@@ -3,42 +3,54 @@ import './NewsPost.css';
 import { Card, CardActions, CardContent, CardMedia, IconButton, makeStyles, Typography } from '@material-ui/core';
 import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ClearOutlinedIcon from '@material-ui/icons/ClearOutlined';
+import { INewsPost } from '../../models/NewsPost';
 
 interface NewsPostProps {
-    mediaUrl: string;
-    title: string;
-    content: string;
+    data: INewsPost;
+    onLike: (e: any) => void;
+    onDelete: (e: any) => void;
 }
 
 // TODO: Create LikeButton with liked bool
 
-export const NewsPost: FunctionComponent<NewsPostProps> = ({ mediaUrl, title, content, }) => {
+export const NewsPost: FunctionComponent<NewsPostProps> = ({ data, onLike, onDelete }) => {
 
     const classes = useStyles();
+    const handleLike = () => {
+        onLike(data);
+    };
+    const handleDelete = () => {
+        onDelete(data.id);
+    };
+
     return (
         <Card
             className={classes.root}
         >
             <CardMedia
                 className={classes.media}
-                image={mediaUrl}>
+                image={data.mediaUrl}>
                 
             </CardMedia>
             <CardContent
                 className={classes.content}
->
+            >
                 <Typography gutterBottom align="left" variant="h4" component="h2">
-                    {title}
+                    {data.title}
                 </Typography>
                 <Typography align="left" variant="body2" color="textSecondary" component="p">
-                    {content}
+                    {data.content}
                 </Typography>
             </CardContent>
             <CardActions className={classes.actions}>
-                <IconButton aria-label="like" >
-                    <ThumbUpAltOutlinedIcon color="action"/>
-                </IconButton>
-                <IconButton aria-label="delete">
+                <div>
+                    <IconButton aria-label="like" onClick={handleLike}>
+                        <ThumbUpAltOutlinedIcon color="action" />
+                    </IconButton>
+                    <Typography variant="body2" color="textSecondary" component="p">{data.likes}</Typography>
+                </div>
+
+                <IconButton aria-label="delete" onClick={handleDelete}>
                     <ClearOutlinedIcon />
                 </IconButton>
             </CardActions>
@@ -48,8 +60,9 @@ export const NewsPost: FunctionComponent<NewsPostProps> = ({ mediaUrl, title, co
 
 const useStyles = makeStyles({
     root: {
+        alignItems: 'center',
         display: 'flex',
-        alignItems: 'center' 
+        margin: '8px 0'
     },
     media: {
         height: 80,
@@ -63,4 +76,4 @@ const useStyles = makeStyles({
         display: 'flex',
         width: 'auto'
     },
-})
+});

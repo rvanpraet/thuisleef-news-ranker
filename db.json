@@ -55,7 +55,7 @@
             "id": 8,
             "title": "Lorem Ipsum",
             "content": "Lorem Ipsum Content It",
-            "mediaUrl": "https://picsum.photos/200 ?random=7",
+            "mediaUrl": "https://picsum.photos/200?random=7",
             "likes": 1
         },
         {
