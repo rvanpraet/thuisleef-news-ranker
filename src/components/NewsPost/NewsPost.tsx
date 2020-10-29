@@ -10,6 +10,8 @@ interface NewsPostProps {
     content: string;
 }
 
+// TODO: Create LikeButton with liked bool
+
 export const NewsPost: FunctionComponent<NewsPostProps> = ({ mediaUrl, title, content, }) => {
 
     const classes = useStyles();
@@ -55,7 +57,7 @@ const useStyles = makeStyles({
         margin: '1rem'
     },
     content: {
-        width: '70%'
+        width: '80%'
     },
     actions: {
         display: 'flex',
