@@ -9,14 +9,14 @@
         },
         {
             "id": 2,
-            "title": "Lorem Ipsum",
+            "title": "Lorem Ipsum Title",
             "content": "Lorem Ipsum Content It",
             "mediaUrl": "https://picsum.photos/200?random=1",
             "likes": 10
         },
         {
             "id": 3,
-            "title": "Lorem Ipsum",
+            "title": "Andere titel",
             "content": "Lorem Ipsum Content It",
             "mediaUrl": "https://picsum.photos/200?random=2",
             "likes": 4
@@ -24,22 +24,22 @@
         },
         {
             "id": 4,
-            "title": "Lorem Ipsum",
-            "content": "Lorem Ipsum Content It",
+            "title": "Welkom bij de Fabeltjesfuik",
+            "content": "Geloof jij erin?",
             "mediaUrl": "https://picsum.photos/200?random=3",
             "likes": 2
         },
         {
             "id": 5,
-            "title": "Lorem Ipsum",
-            "content": "Lorem Ipsum Content It",
+            "title": "Niet de eerste, wel de meeste likes?",
+            "content": "Lorem Ipsum Dolor ... ;)",
             "mediaUrl": "https://picsum.photos/200?random=4",
             "likes": 49
 
         },
         {
             "id": 6,
-            "title": "Lorem Ipsum",
+            "title": "Hallo Wereld, dit is een titel",
             "content": "Lorem Ipsum Content It",
             "mediaUrl": "https://picsum.photos/200?random=5",
             "likes": 49
@@ -53,21 +53,21 @@
         },
         {
             "id": 8,
-            "title": "Lorem Ipsum",
-            "content": "Lorem Ipsum Content It",
+            "title": "Lorem Flapsum",
+            "content": "Lorem Ipsum Flapsum It",
             "mediaUrl": "https://picsum.photos/200?random=7",
             "likes": 1
         },
         {
             "id": 9,
-            "title": "Lorem Ipsum",
-            "content": "Lorem Ipsum Content It",
+            "title": "De inspiratie is op.",
+            "content": "Een veel voorkomend probleem in 2020",
             "mediaUrl": "https://picsum.photos/200?random=8",
             "likes": 0
         },
         {
             "id": 10,
-            "title": "Lorem Ipsum",
+            "title": "Heeft de laatste ook de minste likes?",
             "content": "Lorem Ipsum Content It",
             "mediaUrl": "https://picsum.photos/200?random=9",
             "likes": 2

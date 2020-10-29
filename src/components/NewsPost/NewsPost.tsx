@@ -11,8 +11,6 @@ interface NewsPostProps {
     onDelete: (e: any) => void;
 }
 
-// TODO: Create LikeButton with liked bool
-
 export const NewsPost: FunctionComponent<NewsPostProps> = ({ data, onLike, onDelete }) => {
 
     const classes = useStyles();
