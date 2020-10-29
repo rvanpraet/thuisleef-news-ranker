@@ -9,7 +9,8 @@ export const NewsRanker: FunctionComponent = () => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState<INewsPost[]>([]);
-    const [page, setPage] = React.useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(3);
+    const [page, setPage] = React.useState(0);
 
     useEffect(() => {
         fetch('https://my-json-server.typicode.com/rvanpraet/thuisleef-news-ranker/newsposts')
@@ -33,20 +34,25 @@ export const NewsRanker: FunctionComponent = () => {
     }
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-        setPage(value);
+        setPage(value - 1);
     };
 
     return (
         <Container className="news-ranker-wrapper">
-            {items.map(item => (
-                <NewsPost
-                    key={item.id}
-                    mediaUrl={item.mediaUrl}
-                    title={item.title}
-                    content={item.content}>
-                </NewsPost>
-            ))}
-            <Pagination count={Math.floor(items.length / 3) + 1} page={page} onChange={handleChange} />
+            {items
+                .filter((item, index) => index >= itemsPerPage * page && index < itemsPerPage * page + itemsPerPage)
+                .map(item =>
+                    <NewsPost
+                        key={item.id}
+                        mediaUrl={item.mediaUrl}
+                        title={item.title}
+                        content={item.content}>
+                    </NewsPost>
+            )}
+            <Pagination
+                count={Math.floor(items.length / itemsPerPage) + (items.length % itemsPerPage === 0 ? 0 : 1)}
+                page={page + 1}
+                onChange={handleChange} />
         </Container>
     );
 }
