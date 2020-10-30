@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import './NewsPost.css';
-import { Card, CardActions, CardContent, CardMedia, IconButton, makeStyles, Typography } from '@material-ui/core';
+import { Box, Card, CardActions, CardContent, CardMedia, IconButton, makeStyles, Typography } from '@material-ui/core';
 import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ClearOutlinedIcon from '@material-ui/icons/ClearOutlined';
 import { INewsPost } from '../../models/NewsPost';
@@ -25,18 +25,20 @@ export const NewsPost: FunctionComponent<NewsPostProps> = ({ data, onLike, onDel
         <Card
             className={classes.root}
         >
-            <CardMedia
-                className={classes.media}
-                image={data.mediaUrl}>
-                
-            </CardMedia>
+            <Box display="flex" className={classes.mediaBox}>
+                <CardMedia
+                    className={classes.media}
+                    image={data.mediaUrl}>
+                    
+                </CardMedia>
+            </Box>
             <CardContent
                 className={classes.content}
             >
-                <Typography gutterBottom align="left" variant="h4" component="h2">
+                <Typography gutterBottom variant="h4">
                     {data.title}
                 </Typography>
-                <Typography align="left" variant="body2" color="textSecondary" component="p">
+                <Typography variant="body2" color="textSecondary" component="p">
                     {data.content}
                 </Typography>
             </CardContent>
@@ -56,22 +58,47 @@ export const NewsPost: FunctionComponent<NewsPostProps> = ({ data, onLike, onDel
   );
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     root: {
         alignItems: 'center',
         display: 'flex',
-        margin: '8px 0'
+        flexWrap: 'nowrap',
+        margin: '8px 0',
+        position: 'relative',
+        [theme.breakpoints.down("xs")]: {
+            flexWrap: 'wrap',
+        },
+    },
+    mediaBox: {
+        flex: '0 0 80px',
+        [theme.breakpoints.down("xs")]: {
+            flex: '0 0 0',
+            width: '100%'
+        }
     },
     media: {
         height: 80,
         width: 80,
-        margin: '1rem'
+        margin: '1rem',
+        [theme.breakpoints.down("xs")]: {
+            margin: '1rem 0 0 1rem'
+        }
     },
     content: {
-        width: '80%'
+        textAlign: 'left',
+        width: 'calc(80% - 80px)',
+        [theme.breakpoints.down("xs")]: {
+            width: '100%',
+            // textAlign: 'center'
+        }
     },
     actions: {
         display: 'flex',
-        width: 'auto'
+        width: 'auto',
+        [theme.breakpoints.down("xs")]: {
+            position: 'absolute',
+            top: 0,
+            right: 0
+        }
     },
-});
+}));
