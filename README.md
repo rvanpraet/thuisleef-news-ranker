@@ -1,6 +1,8 @@
 # Thuisleef News Ranker case
 
-De News Ranker app gemaakt met React volgens het aangeleverde WireFrame.
+De News Ranker app made in React according to provided WireFrames.
+
+Run `npm install` to install dependencies after cloning this repo.
 
 ## Available Scripts
 
