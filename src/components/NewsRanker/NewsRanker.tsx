@@ -8,13 +8,21 @@ import { NewsPost } from '../NewsPost/NewsPost';
 
 export const NewsRanker: FunctionComponent = () => {
 
+    // Set Styles
     const classes = useStyles();
 
+    // Loading state
     const [error, setError] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
+
+    // Data state
     const [items, setItems] = useState<INewsPost[]>([]);
     const [filteredItems, setFilteredItems] = useState<INewsPost[]>();
+
+    // Filter state
     const [titleFilter, setTitleFilter] = useState('');
+
+    // Pagination state
     const [itemsPerPage] = useState(3);
     const [page, setPage] = React.useState(1);
     const [pageCount, setPageCount] = React.useState(0);
@@ -59,7 +67,6 @@ export const NewsRanker: FunctionComponent = () => {
 
     // Helper functions
     const calcPageCount = (itemLength: number): void => {
-        console.log(itemLength);
         const count = Math.floor(itemLength / itemsPerPage) + (itemLength % itemsPerPage === 0 ? 0 : 1);
         setPageCount(count);
     };

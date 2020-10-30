@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import './NewsPost.css';
 import { Box, Card, CardActions, CardContent, CardMedia, IconButton, makeStyles, Typography } from '@material-ui/core';
 import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ClearOutlinedIcon from '@material-ui/icons/ClearOutlined';
@@ -13,14 +12,18 @@ interface NewsPostProps {
 
 export const NewsPost: FunctionComponent<NewsPostProps> = ({ data, onLike, onDelete }) => {
 
+    // Set Styles
     const classes = useStyles();
-    const handleLike = () => {
+
+    // Helper functions
+    const handleLike = (): void => {
         onLike(data);
     };
-    const handleDelete = () => {
+    const handleDelete = (): void => {
         onDelete(data.id);
     };
 
+    // JSX Return
     return (
         <Card
             className={classes.root}
@@ -58,9 +61,9 @@ export const NewsPost: FunctionComponent<NewsPostProps> = ({ data, onLike, onDel
   );
 }
 
+// Styles
 const useStyles = makeStyles(theme => ({
     root: {
-        alignItems: 'center',
         display: 'flex',
         flexWrap: 'nowrap',
         margin: '8px 0',
@@ -89,7 +92,6 @@ const useStyles = makeStyles(theme => ({
         width: 'calc(80% - 80px)',
         [theme.breakpoints.down("xs")]: {
             width: '100%',
-            // textAlign: 'center'
         }
     },
     actions: {
